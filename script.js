@@ -21,11 +21,11 @@ $.ajax({
   url: queryURL,
   method: "GET"
 }).then(function(response) {
-
   console.log(queryURL);
   console.log(response);
+  const whicon = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
   $("#currenttemp").text("Temperature: " + response.main.temp.toFixed(1) + "°F");
-  $("#headline").text(response.name + " (" + moment().format('MM[/]DD[/]YYYY') + ") TIME AND ICON");
+  $("#headline").html(response.name + " (" + moment().format('MM[/]DD[/]YYYY') + ") <img src='" + whicon + "' alt=' Current weather icon'>");
   $("#currenthumidity").text("Humidity: " + response.main.humidity + "%");
   $("#currentwindspeed").text("Wind speed: " + response.wind.speed + " MPH");
   //add the UV index
@@ -36,15 +36,13 @@ $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-      console.log(queryURL);
-      console.log(response);
       $(".weatherblock").each(function(i){
           const temp = response.list[i].main.temp;
           const blockdate = moment().add(i+1, 'days').format('MM[/]DD[/]YYYY');
-          console.log(blockdate);
+          const wbicon = "http://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png";
            $(this).children(".wbdate").text(blockdate);
            $(this).children(".wbtemp").text("Temperature: " + response.list[i].main.temp + "°F");
-           $(this).children(".wbicon").text(""); //icon goes here
+           $(this).children(".wbicon").html("<img src='" + wbicon + "' alt=' Current weather icon'>");
            $(this).children(".wbhumidity").text("Humidity: " + response.list[i].main.humidity + "%");  
 
       })
