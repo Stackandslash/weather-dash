@@ -25,7 +25,7 @@ $.ajax({
   console.log(queryURL);
   console.log(response);
   $("#currenttemp").text("Temperature: " + response.main.temp.toFixed(1) + "°F");
-  $("#headline").text(response.name + " TIME AND ICON");
+  $("#headline").text(response.name + " (" + moment().format('MM[/]DD[/]YYYY') + ") TIME AND ICON");
   $("#currenthumidity").text("Humidity: " + response.main.humidity + "%");
   $("#currentwindspeed").text("Wind speed: " + response.wind.speed + " MPH");
   //add the UV index
@@ -40,9 +40,9 @@ $.ajax({
       console.log(response);
       $(".weatherblock").each(function(i){
           const temp = response.list[i].main.temp;
-          console.log(this);
-          console.log(i);
-           $(this).children(".wbdate").text(""); //day+i, when we set moment up.
+          const blockdate = moment().add(i+1, 'days').format('MM[/]DD[/]YYYY');
+          console.log(blockdate);
+           $(this).children(".wbdate").text(blockdate);
            $(this).children(".wbtemp").text("Temperature: " + response.list[i].main.temp + "°F");
            $(this).children(".wbicon").text(""); //icon goes here
            $(this).children(".wbhumidity").text("Humidity: " + response.list[i].main.humidity + "%");  
