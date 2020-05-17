@@ -34,67 +34,61 @@
           </form>
         </div>
           <div class="sidebar-sticky card bg-light mt-3">
-            <ul class="nav flex-column list-group list-group-flush">
-              <li class="nav-item">
+            <ul id="citylist" class="nav flex-column list-group list-group-flush">
+              <!--<li class="nav-item">
                 <a class="nav-link active list-group-item bg-white text-dark border-light text-center" href="#">Kennebunkport</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active list-group-item bg-white text-dark border-light text-center" href="#">Kennebunkport</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active list-group-item bg-white text-dark border-light text-center" href="#">Kennebunkport</a>
-              </li>
+              </li>-->
             </ul>
           </div>
         </nav>
         <main class="col-md ml-2 px-3">
           <div class = "row">
-              <div class = "col-12 card m-3">
+              <div class = "col-12 card m-3" id = "currentweatherdiv">
                   <div class = "card-body">
               <h3 id = "headline">--</h3>
-              <p id = "currenttemp">Temperature: 90.9 °F</p>
-              <p id = "currenthumidity">Humidity: 78%</p>
-              <p id = "currentwindspeed">Wind Speed: 5 MPH</p>
-              <p id = "uvindex">UV Index: <span id="uvbox" class = "bg-danger">RED BOX</span></p>
+              <p id = "currenttemp">Temperature: --</p>
+              <p id = "currenthumidity">Humidity: --</p>
+              <p id = "currentwindspeed">Wind Speed: --</p>
+              <p id = "uvindex">UV Index: <span id="uvbox" class = "bg-danger rounded p-1 text-light">0.00</span></p>
             </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row weatherblock">
               <div class = "col-12 my-3">
               <h3>5-Day Forecast:</h3>
             </div>
         </div>
-            <div class="row">
-                <div class = "col-lg-2 ml-4 my-2 card bg-primary weatherblock">
-                    <h5 class = "text-light wbdate">5/16/2020</h5>
-                    <p class="wbicon"></p> <!--Bootstrap will not stop smearing this as a standalone image, and will not accept overriding CSS outside inline styling. Since inline styling is considered bad pracice, and using a micromanaged sub-subgrid doesn't quite give the same result regardless, it's a paragraph hack for now.-->
-                    <p class = "text-light wbtemp">Temp: 86.84 °F</p>
-                    <p class = "text-light wbhumidity">Humidity: 78%</p>
-                </div>
-                <div class = "col-lg-2 ml-4 my-2 card bg-primary weatherblock">
-                    <h5 class = "text-light wbdate">5/16/2020</h5>
-                    <p class="wbicon"></p>
-                    <p class = "text-light wbtemp">Temp: 86.84 °F</p>
-                    <p class = "text-light wbhumidity">Humidity: 78%</p>
-                </div>
-                <div class = "col-lg-2 ml-4 my-2 card bg-primary weatherblock">
-                    <h5 class = "text-light wbdate">5/16/2020</h5>
-                    <p class="wbicon"></p>
-                    <p class = "text-light wbtemp">Temp: 86.84 °F</p>
-                    <p class = "text-light wbhumidity">Humidity: 78%</p>
-                </div>
-                <div class = "col-lg-2 ml-4 my-2 card bg-primary weatherblock">
-                    <h5 class = "text-light wbdate">5/16/2020</h5>
-                    <p class="wbicon"></p>
-                    <p class = "text-light wbtemp">Temp: 86.84 °F</p>
-                    <p class = "text-light wbhumidity">Humidity: 78%</p>
-                </div>
-                <div class = "col-lg-2 ml-4 my-2 card bg-primary weatherblock">
-                    <h5 class = "text-light wbdate">5/16/2020</h5>
-                    <p class="wbicon"></p>
-                    <p class = "text-light wbtemp">Temp: 86.84 °F</p>
-                    <p class = "text-light wbhumidity">Humidity: 78%</p>
-                </div>
+        <div class="row weatherblock">
+            <div class = "col-lg-2 ml-4 my-2 card bg-primary weatherblock">
+                <h5 class = "text-light wbdate">--</h5>
+                <p class="wbicon"></p>
+                <p class = "text-light wbtemp">Temp: --°F</p>
+                <p class = "text-light wbhumidity">Humidity: --</p>
+            </div>
+            <div class = "col-lg-2 ml-4 my-2 card bg-primary weatherblock">
+                <h5 class = "text-light wbdate">--</h5>
+                <p class="wbicon"></p>
+                <p class = "text-light wbtemp">Temp: --°F</p>
+                <p class = "text-light wbhumidity">Humidity: --</p>
+            </div>
+            <div class = "col-lg-2 ml-4 my-2 card bg-primary weatherblock">
+                <h5 class = "text-light wbdate">--</h5>
+                <p class="wbicon"></p>
+                <p class = "text-light wbtemp">Temp: --°F</p>
+                <p class = "text-light wbhumidity">Humidity: --</p>
+            </div>
+            <div class = "col-lg-2 ml-4 my-2 card bg-primary weatherblock">
+                <h5 class = "text-light wbdate">--</h5>
+                <p class="wbicon"></p>
+                <p class = "text-light wbtemp">Temp: --°F</p>
+                <p class = "text-light wbhumidity">Humidity: --</p>
+            </div>
+            <div class = "col-lg-2 ml-4 my-2 card bg-primary weatherblock">
+                <h5 class = "text-light wbdate">--</h5>
+                <p class="wbicon"></p>
+                <p class = "text-light wbtemp">Temp: --°F</p>
+                <p class = "text-light wbhumidity">Humidity: --</p>
+            </div>
 
             </div>
         </main>
