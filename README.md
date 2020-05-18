@@ -2,6 +2,8 @@
 
 ![weather dashboard demo](./assets/shot1.png)
 
+Live link at [https://stackandslash.github.io/weather-dash/](https://stackandslash.github.io/weather-dash/)
+
 ## Instructions
 
 During your first visit to the page, the app will appear mostly blank. When you enter a search option corresponding to a city, however, it will display the current weather, as well as the five day forecast for that city. It will also add that city to a list under the search bar for easy access, newest entries at the bottom, as specified. 
