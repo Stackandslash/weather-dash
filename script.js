@@ -8,11 +8,13 @@ updateWeather(localStorage.getItem("lastcity"));
 
 //Our onclick for established links. Since they've already been verified, not much needs to be done here.
 $(document).on("click", "a", function (event) {
+  event.preventDefault();
   updateWeather(event.target.text);
 });
 
 $("#searchbtn").on("click", function (event) {
   //console.log(event);
+  event.preventDefault();
   const citypass = $("#searchbox").val();
   updateWeather(citypass);
 });
