@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-![weather dashboard demo](./assets/shot1.png)
+![weather dashboard demo](./assets/shot1.PNG)
 
 Live link at [https://stackandslash.github.io/weather-dash/](https://stackandslash.github.io/weather-dash/)
 
