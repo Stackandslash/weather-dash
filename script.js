@@ -21,7 +21,7 @@ $("#searchbtn").on("click", function (event) {
   updateWeather(citypass);
 });
 
-//The big updating function, for execution once we've confirmed the input is valid.
+//The big updating function, for execution once we've confirmed the input is valid. This whole thing could probably do to be broken up into smaller functions later.
 function updateWeather(cityname) {
   if(cityname == null){
     return;
@@ -115,12 +115,17 @@ function updateWeather(cityname) {
         $(".weatherblock").show();
         // This portion saves cities to the temporary list, and the permanent value for the next visit. This block is here because the ajax .then functions appear to act as an input checker. If the query doesn't return anything, the .then doesn't seem to fire. So, only valid searches can return results.
         localStorage.setItem("lastcity", cityname);
+
+        //This stops the block of code if the city has already been added to the history previously, since the rest of the code will add it.
         if (citylist.includes(cityname)) {
           return;
         }
+        // This checks if the history has reached a certain size. If it has, it removes the oldest entry from the list to make room for the new one.
         if (citylist.length >= 4){
           $(`#${citylist.shift()}`).remove();
         }
+
+        //This sends over a new element to the citylist element containing the city name. The element can be clicked on to re-search.
         citylist.push(cityname);
         var navItemOuterEl = $("<li class='nav-item'>");
         navItemOuterEl.appendTo("#citylist");
