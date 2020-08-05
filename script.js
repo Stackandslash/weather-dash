@@ -42,8 +42,6 @@ function updateWeather(cityname) {
       "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
     lat = response.coord.lat;
     lon = response.coord.lon;
-    console.log(response);
-    console.log(lat, lon);
     $("#currenttemp").text(
       "Temperature: " + response.main.temp.toFixed(1) + "°F"
     );
@@ -57,7 +55,6 @@ function updateWeather(cityname) {
     );
     $("#currenthumidity").text("Humidity: " + response.main.humidity + "%");
     $("#currentwindspeed").text("Wind speed: " + response.wind.speed + " MPH");
-    console.log(lat, lon);
     queryURL =
       "https://api.openweathermap.org/data/2.5/uvi?appid=" +
       APIKey +
@@ -87,7 +84,6 @@ function updateWeather(cityname) {
           "</span>"
       );
       $("#currentweatherdiv").show();
-      console.log(response);
       queryURL =
         "https://api.openweathermap.org/data/2.5/forecast?q=" +
         cityname +
@@ -97,8 +93,6 @@ function updateWeather(cityname) {
         url: queryURL,
         method: "GET",
       }).then(function (response) {
-        console.log(queryURL);
-        console.log(response);
         $(".weatherblock").each(function (i) {
           const blockdate = moment()
             .add(i + 1, "days")
@@ -122,12 +116,10 @@ function updateWeather(cityname) {
         // This portion saves cities to the temporary list, and the permanent value for the next visit. This block is here because the ajax .then functions appear to act as an input checker. If the query doesn't return anything, the .then doesn't seem to fire. So, only valid searches can return results.
         localStorage.setItem("lastcity", cityname);
         if (citylist.includes(cityname)) {
-          console.log("citylist length", citylist.length, "first citylist entry", citylist[0])
           return;
         }
         if (citylist.length >= 4){
           $(`#${citylist.shift()}`).remove();
-          console.log("new list:", citylist);
         }
         citylist.push(cityname);
         var navItemOuterEl = $("<li class='nav-item'>");
