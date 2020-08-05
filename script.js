@@ -15,8 +15,9 @@ $(document).on("click", "a", function (event) {
 $("#searchbtn").on("click", function (event) {
   event.preventDefault();
   //console.log(event);
+  event.preventDefault();
   const citypass = $("#searchbox").val();
-  console.log(citypass);
+  $("#searchbox").val("");
   updateWeather(citypass);
 });
 
@@ -109,7 +110,7 @@ function updateWeather(cityname) {
           $(this).children(".wbdate").text(blockdate);
           $(this)
             .children(".wbtemp")
-            .text("Temperature: " + response.list[i].main.temp + "°F");
+            .text("Temp: " + response.list[i].main.temp + "°F");
           $(this)
             .children(".wbicon")
             .html("<img src='" + wbicon + "' alt=' Current weather icon'>");
@@ -133,7 +134,7 @@ function updateWeather(cityname) {
         navItemOuterEl.appendTo("#citylist");
         $(
           `<a class="nav-link active list-group-item bg-white text-dark border-light text-center" href="#" id="${cityname}">${cityname}</a>`
-        ).appendTo(navItemOuterEl);
+        ).css('textTransform', 'capitalize').appendTo(navItemOuterEl);
       });
     });
   });
