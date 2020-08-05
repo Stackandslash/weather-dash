@@ -8,17 +8,23 @@ updateWeather(localStorage.getItem("lastcity"));
 
 //Our onclick for established links. Since they've already been verified, not much needs to be done here.
 $(document).on("click", "a", function (event) {
+  event.preventDefault();
   updateWeather(event.target.text);
 });
 
 $("#searchbtn").on("click", function (event) {
+  event.preventDefault();
   //console.log(event);
   const citypass = $("#searchbox").val();
+  console.log(citypass);
   updateWeather(citypass);
 });
 
 //The big updating function, for execution once we've confirmed the input is valid.
 function updateWeather(cityname) {
+  if(cityname == null){
+    return;
+  }
   var APIKey = "c0708fd314d4abadfb6401261f72c41f";
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -115,15 +121,18 @@ function updateWeather(cityname) {
         // This portion saves cities to the temporary list, and the permanent value for the next visit. This block is here because the ajax .then functions appear to act as an input checker. If the query doesn't return anything, the .then doesn't seem to fire. So, only valid searches can return results.
         localStorage.setItem("lastcity", cityname);
         if (citylist.includes(cityname)) {
+          console.log("citylist length", citylist.length, "first citylist entry", citylist[0])
           return;
+        }
+        if (citylist.length >= 4){
+          $(`#${citylist.shift()}`).remove();
+          console.log("new list:", citylist);
         }
         citylist.push(cityname);
         var navItemOuterEl = $("<li class='nav-item'>");
         navItemOuterEl.appendTo("#citylist");
         $(
-          '<a class="nav-link active list-group-item bg-white text-dark border-light text-center" href="#">' +
-            cityname +
-            "</a>"
+          `<a class="nav-link active list-group-item bg-white text-dark border-light text-center" href="#" id="${cityname}">${cityname}</a>`
         ).appendTo(navItemOuterEl);
       });
     });
